@@ -1,0 +1,116 @@
+/* profile.component.css */
+
+/* Главни контејнер дијалога */
+.mat-dialog-container {
+    padding: 24px !important;
+    background: #fff3f0 !important;
+    max-width: 600px !important;
+}
+
+/* Хедер са дугмадима */
+[fxLayoutAlign="space-between"] {
+    margin-bottom: 24px;
+}
+
+button[mat-button], button[mat-icon-button] {
+    color: #5E3A28 !important;
+    
+    &:hover {
+    background: rgba(254, 189, 160, 0.2) !important;
+    }
+}
+
+/* Форма и карте */
+mat-dialog-content {
+    padding: 0rem 3rem !important;
+}
+
+mat-card {
+    box-shadow: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin-bottom: 16px;
+}
+
+/* Редови са пољима */
+[fxLayout="row"] {
+    align-items: center;
+    gap: 16px;
+}
+
+mat-icon {
+    color: #D97C5A;
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+}
+
+/* Стилови за инпуте */
+mat-form-field {
+    width: 100%;
+    
+    .mat-form-field-wrapper {
+    padding-bottom: 0;
+    }
+    
+    .mat-form-field-outline {
+    color: #FEBDA0 !important;
+    }
+    
+    .mat-input-element {
+    color: #5E3A28 !important;
+    caret-color: #FD9D7A !important;
+    }
+}
+
+/* Грешке и хинтови */
+mat-error {
+    font-size: 0.8em !important;
+    color: #D97C5A !important;
+}
+
+mat-hint {
+    color: #5E3A28 !important;
+    font-size: 0.8em !important;
+}
+
+/* Save дугме */
+button[mat-raised-button] {
+    background: #FEBDA0 !important;
+    color: #5E3A28 !important;
+    margin-top: 24px;
+    padding: 8px 32px !important;
+    border-radius: 20px !important;
+    transition: all 0.3s ease;
+    
+    &:hover {
+    background: #FD9D7A !important;
+    transform: translateY(-2px);
+    }
+    
+    &:active {
+    transform: translateY(0);
+    }
+}
+
+.dialog-title {
+    color: #5E3A28;
+    text-align: center;
+    margin: 0 0 24px 0;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+/* Респонзивни стилови */
+@media (max-width: 600px) {
+    .mat-dialog-container {
+    padding: 16px !important;
+    }
+    
+    [fxLayout="row"] {
+    gap: 12px;
+    }
+    
+    mat-icon {
+    font-size: 20px;
+    }
+}

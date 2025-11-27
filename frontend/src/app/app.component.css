@@ -1,0 +1,202 @@
+mat-sidenav-container, mat-sidenav, mat-sidenav-content{
+    height: 100%;
+}
+mat-sidenav{
+    width: 15rem;
+}
+mat-toolbar div img{
+    max-height: 4rem;
+    width: auto;
+    padding: 1rem 0;
+    border-radius: 50%;
+}
+mat-toolbar{
+    height: 5rem;
+    background-color: aqua;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+a:hover {
+    color: blue;
+}
+
+/* ===== NAVBAR & SIDENAV ===== */
+mat-sidenav-container {
+    height: 100vh;
+}
+
+mat-sidenav {
+    width: 250px;
+    background: white !important;
+    box-shadow: 2px 0 12px rgba(254, 189, 160, 0.1) !important;
+    border-right: none !important;
+}
+
+mat-nav-list {
+    padding: 20px 0;
+}
+
+mat-list-item {
+    /* color: #5E3A28 !important; */
+    /* transition: all 0.3s ease; */
+    color: #5E3A28 !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 4px 12px;
+    border-radius: 8px !important;
+}
+mat-icon {
+    color: black !important;
+    margin-right: 1rem !important;
+    transition: inherit;
+}
+/* mat-icon:hover {
+    color: #FD9D7A !important;
+} */
+
+mat-list-item:hover {
+    background: #FEBDA0 !important;
+}
+
+mat-list-item:hover mat-icon {
+    color: white !important;
+}
+
+mat-list-item mat-icon {
+    color: #D97C5A !important;
+    margin-right: 15px !important;
+}
+
+.navbar {
+    background: #FEBDA0 !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+    padding: 0 30px !important;
+    height: 80px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+
+.active-link{
+    background: #FD9D7A !important;
+    color: white !important;
+}
+
+.active-link mat-icon {
+    color: white !important;
+}
+mat-nav-list a:hover {
+    color: #FD9D7A;
+}
+
+.navbar img {
+    height: 50px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.navbar img:hover {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+}
+
+/*  ! sugavo dugme za mejl */
+.nav-links button[mat-raised-button] {
+    background-color: white !important; /* #FEBDA0 */
+    color: var(--text-on-primary) !important; /* #5E3A28 */
+    border-radius: 20px !important;
+    padding: 0 20px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: none !important;
+    margin-left: 30px !important;
+    
+    &:hover {
+    background-color: #D97C5A !important; /* #FD9D7A */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(253, 157, 122, 0.3) !important;
+    }
+    
+    &:active {
+    background-color: var(--primary-700) !important; /* #D97C5A */
+    color: white !important;
+    transform: translateY(0);
+    }
+}
+
+
+.nav-links a {
+    /* color: #5E3A28 !important; */
+    color: #5E3A28 !important;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    padding: 8px 0;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #5E3A28;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .nav-links {
+    display: none !important;
+    }
+
+    mat-sidenav {
+    width: 200px;
+    }
+
+    .navbar {
+    padding: 0 15px !important;
+    }
+
+    .navbar img {
+    height: 40px;
+    }
+}
+
+
+/* Stil za cart ikonicu */
+.cart-link {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+    text-decoration: none;
+    color: inherit;
+}
+
+.badge {
+    background-color: #FEBDA0;
+    color: #5E3A28;
+    border-radius: 50%;
+    padding: 2px 8px;
+    font-size: 0.8rem;
+    margin-left: 5px;
+}
+
+/* Responsive prilagodba */
+@media (max-width: 600px) {
+    .cart-link span.badge {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    }
+}

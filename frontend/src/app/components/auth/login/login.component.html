@@ -1,0 +1,61 @@
+<section>
+    <form 
+        fxLayout="column"
+        fxLayoutAlign="center center"
+        fxLayoutAlignGap="1rem"
+        #n="ngForm"
+        (ngSubmit)="onSubmit(n)"
+        >
+
+        <!-- * Email  -->
+        <mat-form-field>
+            <mat-icon matPrefix>person</mat-icon>
+            <input 
+            matInput
+            ngModel
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+            email
+            #emailInput="ngModel"
+            >
+            <mat-error class="errorMessage" 
+            *ngIf="emailInput.hasError('required')">
+            Field should not be empty</mat-error>
+        </mat-form-field>
+
+        <!-- * Password  -->
+        <mat-form-field>
+            <mat-icon matPrefix>key</mat-icon>
+            <input 
+            matInput
+            ngModel
+            required
+            type="password"
+            name="password"
+            placeholder="Enter your password"
+            #passInput="ngModel"
+            minlength="8"
+            >
+
+            <mat-hint align="end"> {{ passInput.value?.length }} / 8 </mat-hint>
+        </mat-form-field>
+
+        <!-- * Checkbox -->
+        <mat-checkbox ngModel name="remember-me" required>
+            Remember me
+        </mat-checkbox>
+
+        <!-- * Submit button -->
+        <button mat-raised-button [disabled]="n.invalid">Submit</button>
+
+        <!-- * Error message field -->
+        <div class="error">
+            <mat-label class="errorMessage" *ngIf="errorExists"> {{ errorText }} </mat-label>
+            <a routerLink="/signup">Click here to sign up. 😄</a>    
+        </div>
+        
+    </form>
+
+</section>

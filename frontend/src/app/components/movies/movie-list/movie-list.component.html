@@ -1,0 +1,36 @@
+<div class="filters">
+    <!-- * Pretraga po naslovu -->
+    <mat-form-field appearance="outline">
+        <mat-label>Search for a movie title</mat-label>
+        <input
+            matInput
+            [(ngModel)]="searchTerm"
+            (input)="searchMoviesByTerm(searchTerm)"
+            placeholder="Enter a title"
+        >
+
+        <!--  (input)="searchMoviesByTerm(searchTerm)" -->
+    </mat-form-field>
+
+
+    <!-- * Padajuca lsita za genre -->
+    <mat-form-field appearance="outline">
+        <mat-label>Genre</mat-label>
+        <mat-select
+        [(ngModel)]="selectedGenre"
+        (selectionChange)="searchMoviesByGenre(selectedGenre)">
+        <!-- (selectionChange)="searchMoviesByGenre(selectedGenre)"> -->
+            <mat-option value="">All genres</mat-option>
+            <mat-option *ngFor="let genre of genres" [value]="genre">{{ genre }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
+<div class="movie-grid">
+    <app-movie-card 
+    *ngFor="let movie of filteredMovies" 
+    [movie]="movie"
+    ></app-movie-card>
+
+    <div class="scroll-indicator"></div>
+</div>

@@ -1,0 +1,118 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: #fff3f0;
+}
+
+/* =========== ROOT I OVERRIDE MATERIAL TEME ===========*/
+:root {
+    /* ovde menjas input polje */
+    --mat-sys-surface-variant: #ffe0d6 !important; /* Glavna narandžasta */
+
+    --primary-50: #fff3f0;
+    --primary-100: #ffe0d6;
+    --primary-200: #FEBDA0;  /* Glavna narandžasta */
+    --primary-500: #FD9D7A;  /* Tamnija nijansa */
+    --primary-700: #D97C5A;  /* Hover efekti */
+    --text-on-primary: #5E3A28;
+}
+/* Форма - комплетан reset */
+.mat-form-field-label,
+.mat-form-field-underline,
+.mat-form-field-ripple,
+.mat-focused .mat-form-field-label,
+.mat-focused .mat-form-field-ripple {
+    color: #FEBDA0 !important; /* Основна боја */
+    background-color: #FEBDA0 !important;
+    background: none;
+}
+input:-internal-autofill-selected {
+    appearance: menulist-button;
+    background-image: none !important;
+    background-color: var(--text-on-primary);
+    color: var(--text-on-primary);
+}
+
+
+/* =========== INPUT ===========*/
+/* styles.css */
+/* Нуклеарна опција за све бравсере */
+input.mat-input-element:-webkit-autofill,
+input.mat-input-element:-webkit-autofill:hover,
+input.mat-input-element:-webkit-autofill:focus,
+input.mat-input-element:-webkit-autofill:active,
+input.mat-input-element:-moz-autofill,
+input.mat-input-element:-moz-autofill:hover,
+input.mat-input-element:-moz-autofill:focus,
+input.mat-input-element:-ms-autofill,
+input.mat-input-element:-ms-autofill:hover,
+input.mat-input-element:-ms-autofill:focus {
+    -webkit-box-shadow: 0 0 0 1000px #FEBDA0 inset !important;
+    -moz-box-shadow: 0 0 0 1000px #FEBDA0 inset !important;
+    box-shadow: 0 0 0 1000px #FEBDA0 inset !important;
+    -webkit-text-fill-color: #5E3A28 !important;
+    -moz-text-fill-color: #5E3A28 !important;
+    background-color: #FEBDA0 !important;
+    background-image: none !important;
+    color: #5E3A28 !important;
+  transition: background-color 9999s ease-in-out 0s !important; /* 9999s хакирање */
+}
+
+/* Атомски CSS за Material анђео/ђаво детаље */
+.mat-form-field .mat-form-field-infix input {
+    background-color: #FEBDA0 !important;
+}
+
+/* Форсирај стилове чак и када је инпут фоциран */
+.mat-form-field.mat-focused .mat-form-field-infix input {
+    background-color: #FEBDA0 !important;
+}
+
+/* =========== Checkbox ===========*/
+.mat-checkbox-checked .mat-checkbox-background {
+    background-color: #FEBDA0 !important;
+}
+
+.mat-checkbox-checkmark-path {
+    stroke: white !important;
+}
+
+/* Input underline анимација */
+.mat-form-field-underline::before {
+    background-color: #FEBDA0 !important;
+    height: 2px !important;
+}
+
+/* Промени боју текста у инпуту */
+.mat-input-element {
+    color: #333 !important;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+/* global styles.css */
+
+.mat-datepicker-content,
+.mat-mdc-datepicker-content {
+    background-color: var(--primary-50) !important;
+    color: #5E3A28 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+.mat-calendar-body-cell-content {
+    color: #5E3A28 !important;
+}
+
+.mat-calendar-body-today:not(.mat-calendar-body-selected) {
+    border-color: #FD9D7A !important;
+}
+
+.mat-calendar-body-cell:hover .mat-calendar-body-cell-content,
+.mat-calendar-body-active {
+    background-color: #FEBDA0 !important;
+    color: white !important;
+}

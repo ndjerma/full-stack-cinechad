@@ -1,0 +1,202 @@
+<div fxLayoutAlign="space-between">
+    <!-- ? dugme za zatvaranje -->
+    <button mat-button [mat-dialog-close]="true">
+        <mat-icon matListItemIcon>
+            close
+        </mat-icon>
+    </button>
+
+    <!-- ? edit dugme -->
+    <button mat-icon-button (click)="enableEdit()">
+        <mat-icon matListItemIcon *ngIf="authService.currentUser?.id === profileForInput.id"
+        (click)="this.isEditing = !this.isEditing">
+            edit
+        </mat-icon>
+    </button>
+</div>
+
+
+<!-- authService.currentUser ? authService.currentUser.email : 'User Profile -->
+<mat-dialog-content>
+    <form fxLayout="column" fxLayoutGap="1rem" #editForm="ngForm" (ngSubmit)="finishEditing()">
+
+        <h2 class="dialog-title">User Profile</h2>
+        <!-- ? Email -->
+        <mat-card>
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
+                <mat-icon>mail</mat-icon>
+
+                <div fxLayout="column" *ngIf="!this.isEditing">
+                    <span>{{ this.profileForInput.email }}</span>
+                </div>
+
+                <mat-form-field *ngIf="this.isEditing">
+                    <input
+                        matInput
+                        type="email"
+                        name="email"
+                        placeholder="Your Email"
+                        ngModel
+                        [(ngModel)]="this.profileForInput.email"
+                        email
+                        required
+                        #emailInput="ngModel"
+                    >
+                    <mat-error *ngIf="emailInput.hasError('required')">
+                        Email is required.
+                    </mat-error>
+                    <mat-error *ngIf="!emailInput.hasError('required')">
+                        Email has incorrect format.
+                    </mat-error>
+                </mat-form-field>
+
+            </div>
+        </mat-card>
+
+        <!-- ? Password -->
+        <mat-card>
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
+                <mat-icon>lock</mat-icon>
+
+                <mat-form-field hintLabel="Minimum 8 characters">
+                    <input
+                        matInput
+                        type="password"
+                        name="password"
+                        placeholder="Your Password"
+                        minlength="8"
+                        ngModel
+                        [(ngModel)]="this.profileForInput.password"
+                        password
+                        required
+                        #passwordInput="ngModel"
+                    >
+                    <mat-hint align="end">{{ passwordInput.value?.length }} / 8</mat-hint>
+                </mat-form-field>
+
+            </div>
+        </mat-card>
+
+        <!-- ? Datepicker -->
+        <mat-card>
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
+                <mat-icon>calendar_month</mat-icon>
+                <mat-form-field>
+                    <input 
+                        matInput 
+                        [matDatepicker]="picker"
+                        placeholder="Date of Birth"
+                        [(ngModel)]="profileForInput.birthDate"
+                        name="birthDate"
+                        required
+                        #birthDate="ngModel"
+                    >
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </mat-card>
+
+        <!-- ? Name -->
+        <mat-card>
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
+                <mat-icon>import_contacts</mat-icon>
+
+                <mat-form-field>
+                    <input
+                        matInput
+                        type="text"
+                        name="name"
+                        placeholder="Your Name"
+                        ngModel
+                        [(ngModel)]="this.profileForInput.name"
+                        #addressInput="ngModel"
+                    >
+                </mat-form-field>
+
+            </div>
+        </mat-card>
+
+        <!-- ? Surname -->
+        <mat-card>
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
+                <mat-icon>import_contacts</mat-icon>
+
+                <mat-form-field>
+                    <input
+                        matInput
+                        type="text"
+                        name="surname"
+                        placeholder="Your Surname"
+                        ngModel
+                        [(ngModel)]="this.profileForInput.surname"
+                        #addressInput="ngModel"
+                    >
+                </mat-form-field>
+
+            </div>
+        </mat-card>
+
+        <!-- ? Address -->
+        <mat-card>
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
+                <mat-icon>home</mat-icon>
+
+                <mat-form-field>
+                    <input
+                        matInput
+                        type="text"
+                        name="address"
+                        placeholder="Your Address"
+                        ngModel
+                        [(ngModel)]="this.profileForInput.address"
+                        #addressInput="ngModel"
+                    >
+                </mat-form-field>
+
+            </div>
+        </mat-card>
+
+        <!-- ? Phone Number -->
+        <mat-card>
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
+                <mat-icon>phone_iphone</mat-icon>
+
+                <mat-form-field>
+                    <input
+                        matInput
+                        type="text"
+                        name="phoneNumber"
+                        placeholder="Your Phone Number"
+                        ngModel
+                        [(ngModel)]="this.profileForInput.phoneNumber"
+                        #addressInput="ngModel"
+                    >
+                </mat-form-field>
+
+            </div>
+        </mat-card>
+
+        <!-- ? Favorite Genre -->
+        <mat-card>
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
+                <mat-icon>movie</mat-icon>
+
+                <mat-form-field>
+                    <input
+                        matInput
+                        type="text"
+                        name="movie"
+                        placeholder="Your Preferred Genre"
+                        ngModel
+                        [(ngModel)]="this.profileForInput.favGenre"
+                        #addressInput="ngModel"
+                    >
+                </mat-form-field>
+
+            </div>
+        </mat-card>
+
+        <button type="submit" *ngIf="this.isEditing" mat-raised-button>Save</button>
+    </form>
+</mat-dialog-content>

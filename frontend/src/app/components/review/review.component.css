@@ -1,0 +1,154 @@
+
+.review-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: var(--primary-100);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .review-section h3 {
+    color: var(--text-on-primary);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+  
+  .average-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: var(--text-on-primary);
+  }
+  
+  .average-rating .rating-value {
+    font-weight: 600;
+    color: var(--primary-700);
+  }
+  
+  .review {
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+    background-color: white;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-200);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  
+  .review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .review-user {
+    font-weight: 600;
+    color: var(--primary-700);
+  }
+  
+  .review-rating {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--primary-100);
+    color: var(--primary-700);
+    padding: 0.25rem 0.5rem;
+    border-radius: 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  
+  .review-comment {
+    color: var(--text-on-primary);
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+  }
+  
+  .review-date {
+    font-size: 0.75rem;
+    color: #888;
+  }
+  
+  .submit-review {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  
+  .submit-review h4 {
+    color: var(--text-on-primary);
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+  
+  .submit-review label {
+    display: block;
+    margin-bottom: 0.75rem;
+    color: var(--text-on-primary);
+    font-weight: 500;
+  }
+  
+  .submit-review input[type="number"] {
+    width: 60px;
+    padding: 0.5rem;
+    border: 1px solid var(--primary-100);
+    border-radius: 4px;
+    background-color: var(--primary-50);
+    margin-left: 0.5rem;
+    color: var(--text-on-primary);
+  }
+  
+  .submit-review textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 0.75rem;
+    border: 1px solid var(--primary-100);
+    border-radius: 4px;
+    background-color: var(--primary-50);
+    margin-bottom: 1rem;
+    color: var(--text-on-primary);
+    resize: vertical;
+  }
+  
+  .submit-review button {
+    background-color: var(--primary-200);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+  }
+  
+  .submit-review button:hover {
+    background-color: var(--primary-500);
+  }
+  
+  .no-reviews {
+    color: var(--text-on-primary);
+    font-style: italic;
+    padding: 1rem;
+    text-align: center;
+    background-color: white;
+    border-radius: 8px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .review-section {
+      padding: 1rem;
+    }
+    
+    .review {
+      padding: 1rem;
+    }
+    
+    .submit-review {
+      padding: 1rem;
+    }
+  }

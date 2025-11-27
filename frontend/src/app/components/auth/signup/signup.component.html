@@ -1,0 +1,180 @@
+<section class="signup-container">
+    <h1>Create Your Account</h1>
+    <p class="subtitle">Fill in all required details to start your cinematic journey</p>
+    
+    <form
+        fxLayout="column"
+        fxLayoutGap="1.5rem"
+        fxLayoutAlign="center stretch"
+        #signupForm="ngForm"
+        (ngSubmit)="onSubmit(signupForm)"
+        class="signup-form"
+    >
+        <!-- Personal Info Section -->
+        <div class="form-section">
+            <h2>Personal Information</h2>
+            <div fxLayout="row" fxLayoutGap="1rem">
+                <mat-form-field fxFlex>
+                    <mat-label>First Name</mat-label>
+                    <input 
+                        matInput
+                        ngModel
+                        name="name"
+                        required
+                        #firstName="ngModel"
+                    >
+                    <mat-error *ngIf="firstName.invalid">Required field</mat-error>
+                </mat-form-field>
+
+                <mat-form-field fxFlex>
+                    <mat-label>Last Name</mat-label>
+                    <input 
+                        matInput
+                        ngModel
+                        name="surname"
+                        required
+                        #lastName="ngModel"
+                    >
+                    <mat-error *ngIf="lastName.invalid">Required field</mat-error>
+                </mat-form-field>
+            </div>
+
+            <mat-form-field>
+                <mat-label>Date of Birth</mat-label>
+                <input matInput 
+                    [matDatepicker]="picker"
+                    ngModel
+                    name="birthDate"
+                    required
+                    #birthDate="ngModel"
+                >
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="birthDate.invalid">Required field</mat-error>
+            </mat-form-field>
+        </div>
+
+        <!-- Contact Info Section -->
+        <div class="form-section">
+            <h2>Contact Information</h2>
+            <div>
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input 
+                        matInput
+                        type="email"
+                        ngModel
+                        name="email"
+                        required
+                        #email="ngModel"
+                    >
+                    <mat-error *ngIf="email.invalid">Valid email required</mat-error>
+                </mat-form-field>
+    
+                <mat-form-field>
+                    <mat-label>Phone Number</mat-label>
+                    <input 
+                        matInput
+                        type="tel"
+                        ngModel
+                        name="phoneNumber"
+                        required
+                        pattern="[0-9]{10}"
+                        #phone="ngModel"
+                    >
+                    <mat-error *ngIf="phone.invalid">10-digit number required</mat-error>
+                </mat-form-field>
+    
+                <mat-form-field>
+                    <mat-label>Address</mat-label>
+                    <textarea
+                        matInput
+                        ngModel
+                        name="address"
+                        required
+                        #address="ngModel"
+                        rows="2"
+                    ></textarea>
+                    <mat-error *ngIf="address.invalid">Required field</mat-error>
+                </mat-form-field>
+            </div> 
+        </div>
+
+        <!-- Favorite Genres Section -->
+        <div class="form-section">
+            <h2>Favorite Movie Genres</h2>
+            <mat-selection-list ngModel name="favGenre" required #genres="ngModel">
+                <mat-list-option *ngFor="let genre of allGenres" [value]="genre">
+                    {{ genre }}
+                </mat-list-option>
+            </mat-selection-list>
+            <br>
+            <mat-error *ngIf="genres.invalid" class="list-error">Select at least one genre</mat-error>
+        </div>
+
+        <!-- Account Security Section -->
+        <div class="form-section">
+            <h2>Account Security</h2>
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input
+                    matInput
+                    type="password"
+                    ngModel
+                    name="password"
+                    required
+                    minlength="8"
+                    #password="ngModel"
+                >
+                <mat-hint align="end">{{ password.value?.length || 0 }}/8 characters</mat-hint>
+                <mat-error *ngIf="password.invalid">
+                    Password must be at least 8 characters
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Confirm Password</mat-label>
+                <input
+                    matInput
+                    type="password"
+                    ngModel
+                    name="confirmPassword"
+                    required
+                    #confirmPassword="ngModel"
+                >
+                <mat-error *ngIf="confirmPassword.invalid || 
+                                (signupForm.value.password !== signupForm.value.confirmPassword && 
+                                 confirmPassword.touched)">
+                    Passwords must match
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <!-- Terms and Submit -->
+        <mat-checkbox ngModel name="terms" required #terms="ngModel">
+            I accept the <a href="#" class="terms-link">Terms and Conditions</a>
+        </mat-checkbox>
+        <mat-error *ngIf="terms.invalid && terms.touched" class="terms-error">
+            You must accept the terms
+        </mat-error>
+
+        <button 
+            mat-raised-button 
+            color="primary" 
+            type="submit"
+            [disabled]="signupForm.invalid"
+            class="submit-button"
+        >
+            Create Account
+        </button>
+
+        <div class="login-redirect">
+            Already have an account? <a routerLink="/login">Log in here</a>
+        </div>
+
+        <div *ngIf="errorMessage" class="error-message">
+            <mat-icon>error_outline</mat-icon>
+            {{ errorMessage }}
+        </div>
+    </form>
+</section>

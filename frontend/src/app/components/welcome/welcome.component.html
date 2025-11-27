@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="header">
+        <div class="header-content">
+            <h1>Welcome to CineChad!</h1>
+            <p class="subtitle">Experience the magic of cinema with our curated selection of blockbusters</p>
+            <button mat-raised-button class="browse-button" routerLink="/movies">
+                Browse Movies
+                <mat-icon>arrow_forward</mat-icon>
+            </button>
+        </div>
+        <div class="header-image">
+            <img src="header-pic-noge.jpg" alt="Modern cinema theater" class="header-img" />
+        </div>
+    </div>
+
+    <div class="section-one">
+        <div class="header-image">
+            <img src="header-popcorn.jpg" alt="Popcorn and movie tickets" class="header-img" />
+        </div>
+        <div class="auth-card">
+            <h2>Ready for your movie night?</h2>
+            <p class="auth-message">Create an account or login to reserve tickets and unlock all features</p>
+            <div class="auth-buttons">
+                <button mat-raised-button class="login-button" routerLink="/login">
+                    <mat-icon>login</mat-icon>
+                    Login
+                </button>
+                <button mat-stroked-button class="register-button" routerLink="/signup">
+                    <mat-icon>person_add</mat-icon>
+                    Register
+                </button>
+            </div>
+            <div class="features">
+                <div class="feature">
+                    <mat-icon>confirmation_number</mat-icon>
+                    <span>Easy ticket reservation</span>
+                </div>
+                <div class="feature">
+                    <mat-icon>star_rate</mat-icon>
+                    <span>Rate and review movies</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-two">
+        <h2>Why choose CineChad?</h2>
+        <div class="benefits">
+            <div class="benefit-card">
+                <mat-icon>theaters</mat-icon>
+                <h3>Wide Selection</h3>
+                <p>From blockbusters to indie gems</p>
+            </div>
+            <div class="benefit-card">
+                <mat-icon>schedule</mat-icon>
+                <h3>Flexible Times</h3>
+                <p>Screenings throughout the day</p>
+            </div>
+            <div class="benefit-card">
+                <mat-icon>local_offer</mat-icon>
+                <h3>Special Offers</h3>
+                <p>Discounts for members</p>
+            </div>
+        </div>
+    </div>
+</div>

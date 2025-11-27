@@ -1,0 +1,49 @@
+<mat-card class="movie-card" fxLayout="column" fxFlexFill>
+
+    <!-- * sekcija sa osnovnim infomacijama -->
+    <div 
+    mat-card-image 
+    class="movie-poster"
+    [style.background-image]="'url(' + movie.imageUrl + ')'"
+    (click)="navigateToMovieDetails()"></div>
+    
+    <!-- * zaglavlje sa naslovom -->
+    <mat-card-header fxFlex="nogrow">
+        <mat-card-title>{{ movie.title }}</mat-card-title>
+        <mat-card-subtitle>{{ movie.description | slice:0:100 }}...</mat-card-subtitle>
+    </mat-card-header>
+    
+    <!-- * kontrole za rezervaciju -->
+    <mat-card-content>
+
+        <div class="overlay-info" fxLayout="column" fxLayoutAlign="center center">
+            <span class="start-time">{{ getFormattedDate(movie.projections[0].dateTime) }}</span>        <!-- {{ getFormattedDate(movie.projections[0].dateTime) }} -->
+            <span class="price">{{ movie.price }} RSD</span>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="center center" class="ticket-controls">
+            <!-- ? fxLayoutAlign="center center" je bio iznad -->
+            <!-- <mat-form-field appearance="outline">
+                <mat-label>Ticket number</mat-label>
+                <input 
+                    matInput
+                    type="number"
+                    min="1"
+                    [(ngModel)]="ticketCount"
+                    #ticketInput
+                    (keyup.enter)="addToCart()"
+                    >
+            </mat-form-field> -->
+
+            <button 
+                mat-raised-button 
+                color="primary"
+                (click)="navigateToMovieDetails()"
+                [disabled]="ticketCount < 1"
+                
+                >
+                Reserve
+            </button>
+        </div>
+    </mat-card-content>
+</mat-card>

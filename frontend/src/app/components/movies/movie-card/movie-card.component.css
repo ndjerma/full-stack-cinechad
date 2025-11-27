@@ -1,0 +1,157 @@
+:host {
+    --primary-50: #fff3f0;
+    --primary-100: #ffe0d6;
+    --primary-200: #FEBDA0;
+    --primary-500: #FD9D7A;
+    --primary-700: #D97C5A;
+    --text-on-primary: #5E3A28;
+}
+
+.movie-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.movie-poster {
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--primary-100);
+}
+
+mat-card-header {
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+}
+
+mat-card-title {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #222;
+}
+
+mat-card-subtitle {
+    text-align: center;
+    font-size: 0.95rem;
+    color: #666;
+    margin-top: 4px;
+}
+
+mat-card-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem;
+    gap: 8px;
+}
+.movie-card input[matInput] {
+    text-align: center;
+}
+.movie-card input[matInput] {
+    text-align: center;
+}
+
+/* * stil za link-sliku */
+.movie-poster {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.movie-poster:hover {
+    transform: scale(1.02);
+}
+
+.overlay-info {
+    background-color: var(--primary-50);
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--text-on-primary);
+    font-weight: 500;
+}
+
+.start-time {
+    font-size: 1rem;
+    margin-bottom: 6px;
+}
+
+.price {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.ticket-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.ticket-controls button {
+    width: 100%;
+    border-radius: 8px;
+}
+
+mat-form-field {
+    flex: 1;
+}
+
+button[mat-raised-button] {
+    background-color: var(--primary-200);
+    color: var(--text-on-primary);
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+button[mat-raised-button]:hover {
+    background-color: var(--primary-700);
+}
+
+button[mat-raised-button]:disabled {
+    background-color: #ccc;
+    color: #888;
+    cursor: not-allowed;
+}
+
+
+
+
+
+@media (max-width: 600px) {
+    .movie-poster {
+    height: 300px;
+    }
+
+    mat-card-title {
+    font-size: 1.1rem;
+    }
+
+    mat-card-subtitle {
+    font-size: 0.85rem;
+    }
+
+    .ticket-controls {
+    flex-direction: column;
+    align-items: stretch;
+    }
+
+    .ticket-controls button {
+        width: 100%;
+    }
+}
+
+

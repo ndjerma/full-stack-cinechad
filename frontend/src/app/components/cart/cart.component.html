@@ -1,0 +1,90 @@
+<div class="cart-container">
+    <h2>Your Cart</h2>
+    
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- ? Title Column -->
+    <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef> Movie Title </th>
+        <td mat-cell *matCellDef="let item"> {{ item.title }} </td>
+    </ng-container>
+
+    <!-- ? Date Column -->
+    <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Projection Date </th>
+        <td mat-cell *matCellDef="let item"> {{ item.dateTime | date:'medium' }} </td>
+    </ng-container>
+
+    <!-- ? Price Column -->
+    <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> Price </th>
+        <td mat-cell *matCellDef="let item"> {{ item.price | currency: 'RSD ' }} </td>
+    </ng-container>
+
+    <!-- ? Quantity Column -->
+    <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef> Quantity </th>
+        <td mat-cell *matCellDef="let item">
+        <button mat-icon-button (click)="updateQuantity(item, -1)" *ngIf="canEdit(item)">
+            <mat-icon>remove</mat-icon>
+        </button>
+        {{ item.quantity }}
+        <button mat-icon-button (click)="updateQuantity(item, 1)" *ngIf="canEdit(item)">
+            <mat-icon>add</mat-icon>
+        </button>
+        </td>
+    </ng-container>
+
+    <!-- ? Total Price Column -->
+    <ng-container matColumnDef="total">
+        <th mat-header-cell *matHeaderCellDef> Total </th>
+        <td mat-cell *matCellDef="let item"> {{ (item.price * item.quantity) | currency: 'RSD ' }} </td>
+    </ng-container>
+
+    <!-- ? Demo Controls -->
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Demo Controls</th>
+        <td mat-cell *matCellDef="let item; let i = index">
+                <!-- ? Dugme za brisanje (samo ako je dozvoljeno) -->
+          <button mat-icon-button 
+                  *ngIf="canDelete(item)" 
+                  (click)="removeItem(item)" 
+                  matTooltip="Remove from cart">
+            <mat-icon>delete</mat-icon>
+          </button>
+      
+                <!-- ? Ikonice za menjanje statusa (samo u demo modu) -->
+          <ng-container *ngIf="cartService.isDemoMode">
+            <button mat-icon-button (click)="setStatus(i, 'reserved')" matTooltip="Set RESERVED">
+              <mat-icon>schedule</mat-icon>
+            </button>
+            <button mat-icon-button (click)="setStatus(i, 'watched')" matTooltip="Set WATCHED">
+              <mat-icon>check_circle</mat-icon>
+            </button>
+            <button mat-icon-button (click)="setStatus(i, 'canceled')" matTooltip="Set CANCELED">
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </ng-container>
+        </td>
+      </ng-container>
+
+    <!-- ? Status Column -->
+    <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let item">
+        <mat-chip [color]="getStatusColor(item.status)">
+            {{ item.status | titlecase }}
+        </mat-chip>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <div class="total-section">
+    <h3>Total: {{ cartService.getTotalPrice() | currency: 'RSD ' }}</h3>
+    <button mat-raised-button color="primary" (click)="cartService.clearCart()">
+        Clear Cart
+    </button>
+    </div>
+</div>

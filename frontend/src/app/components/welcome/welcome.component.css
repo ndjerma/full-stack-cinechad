@@ -1,0 +1,281 @@
+/* welcome.component.css */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 60px;
+    padding: 40px 0;
+}
+
+.header-content {
+    flex: 1;
+}
+
+.header-image {
+    flex: 1;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.header-img {
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.header-img:hover {
+    transform: scale(1.02);
+}
+
+h1 {
+    font-size: 3rem;
+    color: black;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--text-on-primary);
+    margin-bottom: 30px;
+    max-width: 500px;
+}
+
+.browse-button {
+    background-color: var(--primary-200) !important;
+    color: var(--text-on-primary) !important;
+    padding: 12px 24px !important;
+    font-size: 1.1rem;
+    border-radius: 8px !important;
+    transition: all 0.3s ease;
+}
+
+.browse-button:hover {
+    background-color: var(--primary-500) !important;
+    transform: translateY(-2px);
+}
+
+/* Section One - Auth */
+/* SECTION ONE - UPDATED STYLES */
+.section-one {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background-color: var(--primary-100);
+    border-radius: 16px;
+    padding: 40px;
+    margin: 60px 0;
+    overflow: hidden;
+}
+
+.section-one .header-image {
+    flex: 1;
+    min-width: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.section-one .header-img {
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.section-one .header-img:hover {
+    transform: scale(1.05);
+}
+
+.section-one .auth-card {
+    flex: 1;
+    padding: 0 30px;
+}
+
+.section-one h2 {
+    color:black;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.section-one .auth-message {
+    font-size: 1.1rem;
+    color: var(--text-on-primary);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.section-one .auth-buttons {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.section-one .login-button {
+    background-color: var(--primary-200) !important;
+    color: var(--text-on-primary) !important;
+    padding: 12px 24px !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease;
+}
+
+.section-one .login-button:hover {
+    background-color: var(--primary-500) !important;
+    transform: translateY(-2px);
+}
+
+.section-one .register-button {
+    color: var(--primary-700) !important;
+    border-color: var(--primary-700) !important;
+    padding: 12px 24px !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease;
+}
+
+.section-one .register-button:hover {
+    background-color: rgba(253, 157, 122, 0.1) !important;
+    transform: translateY(-2px);
+}
+
+.section-one .features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.section-one .feature {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary-700);
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+.section-one .feature mat-icon {
+    color: var(--primary-200);
+}
+
+/* RESPONSIVE ADJUSTMENTS */
+@media (max-width: 900px) {
+    .section-one {
+        flex-direction: column;
+        padding: 30px;
+    }
+    
+    .section-one .header-image {
+        width: 100%;
+        min-width: auto;
+        max-height: 300px;
+    }
+    
+    .section-one .auth-card {
+        padding: 0;
+        width: 100%;
+    }
+    
+    .section-one .auth-buttons {
+        flex-direction: column;
+    }
+    
+    .section-one .features {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-one {
+        padding: 20px;
+        margin: 40px 0;
+    }
+    
+    .section-one h2 {
+        font-size: 1.5rem;
+    }
+    
+    .section-one .auth-message {
+        font-size: 1rem;
+    }
+}
+/* Section Two - Benefits */
+.section-two {
+    margin-bottom: 60px;
+}
+
+.section-two h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: black;
+}
+
+.benefits {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.benefit-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    flex: 1;
+    min-width: 250px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+}
+
+.benefit-card mat-icon {
+    font-size: 2.5rem;
+    width: auto;
+    height: auto;
+    color: var(--primary-200);
+    margin-bottom: 15px;
+}
+
+.benefit-card h3 {
+    color: var(--primary-700);
+    margin-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .subtitle {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .auth-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .features {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

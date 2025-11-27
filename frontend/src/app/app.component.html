@@ -1,0 +1,83 @@
+<mat-sidenav-container>
+    <!-- * Otvoreni sidenav -->
+    <mat-sidenav opened="true" #sidenav>
+
+        <mat-nav-list>
+
+            <!-- * prikaz ako korisnik nije ulogovan -->
+            <a mat-list-item routerLink="/signup" (click)="sidenav.close()" *ngIf="!authService.currentUser">
+                <mat-icon>person_add</mat-icon>
+                Sign Up
+            </a>
+            <a mat-list-item routerLink="/login" (click)="sidenav.close()" *ngIf="!authService.currentUser">
+                <mat-icon>login</mat-icon>
+                Sign In
+            </a>
+
+            <!-- * uvek prikazujemo -->  
+            <a mat-list-item routerLink="/movies" (click)="sidenav.close()">
+                <mat-icon>movie</mat-icon>
+                Movies
+            </a>
+
+            <!-- * prikaz ako je korisnik  ulogovan -->
+            <a mat-list-item routerLink="/cart" (click)="sidenav.close()" *ngIf="authService.currentUser">
+                <mat-icon>shopping_cart</mat-icon>
+                Cart ({{cartService.getCartItems().length}})
+            </a>
+            <a mat-list-item routerLink="/" (click)="sidenav.close()" (click)="logout()" *ngIf="authService.currentUser">
+                <mat-icon>logout</mat-icon>
+                Log Out
+            </a>
+            <button
+                    mat-raised-button
+                    (click)="openProfile(authService.currentUser.id)"
+                    *ngIf="authService.currentUser"
+                > {{ authService.currentUser.email || 'User Profile'}} </button>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <!-- * sidenav / toolbar  -->
+    <mat-sidenav-content>
+        <mat-toolbar class="navbar">
+            <div fxHide.gt-xs>
+                <button (click)="sidenav.toggle()">
+                    <mat-icon>list</mat-icon>
+                </button>
+            </div>  
+
+                <!-- * glavna navigacija -->
+            <div>
+                <!-- <img routerLink="/" src="logo-cinechad.jpeg" alt="Logo"> -->
+                <img routerLink="/" src="cinechad-high-resolution-logo.png" alt="Logo">
+            </div>
+            
+            <div class="nav-links" fxHide.xs>
+                <!-- * prikazujemo samo ako nije ulogovan -->
+                <a routerLink="/signup" *ngIf="!authService.currentUser">Sign Up</a>
+                <a routerLink="/login" *ngIf="!authService.currentUser">Sign In</a>
+
+                <!-- * uvek prikazujemo -->
+                <a routerLink="/movies">Movies</a>
+                
+                <!-- * prikazujemo samo ako korisnik jeste ulogovan -->
+                <a routerLink="/login"
+                    *ngIf="authService.currentUser"
+                    (click)="logout()"
+                >Sign Out</a>
+                <a routerLink="/cart" class="cart-link" *ngIf="authService.currentUser">
+                    <mat-icon>shopping_cart</mat-icon>
+                    <span class="badge">{{cartService.getCartItems().length}}</span>
+                </a>
+                <button
+                    mat-raised-button
+                    (click)="openProfile(authService.currentUser.id)"
+                    *ngIf="authService.currentUser"
+                > {{ authService.currentUser.email || 'User Profile'}} </button>
+                
+            </div>
+        </mat-toolbar>
+
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

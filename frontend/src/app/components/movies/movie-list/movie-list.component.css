@@ -1,0 +1,155 @@
+/* movie-list.component.css */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 300px)); /* Fiksna sirina kolona */
+    justify-content: center;
+    gap: 30px;
+    padding: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+@media (max-width: 1200px) {
+    .movie-grid {
+    grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1000px) {
+    .movie-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .movie-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 15px;
+    }
+}
+
+/* Подешавање за веће екране */
+@media (min-width: 1600px) {
+    .movie-grid {
+    grid-template-columns: repeat(4, 1fr);
+    }
+}
+/* * ========================== * */
+
+/* movie-list.component.css */
+.filters {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Две једнаке колоне */
+    gap: 30px;
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* Стилови за оба form field-а */
+mat-form-field {
+    width: 100%;
+    background-color: var(--primary-200); /* #FEBDA0 */
+    border-radius: 8px;
+    padding: 8px;
+}
+
+/* Стилови за инпут и селект */
+.mat-mdc-text-field-wrapper,
+.mat-mdc-select-panel {
+    background-color: black !important;
+}
+
+.mat-mdc-form-field-infix {
+    background: var(--primary-100); /* #ffe0d6 */
+    padding: 12px !important;
+    border-radius: 4px;
+}
+
+/* Текст и границе */
+.mat-mdc-input-element,
+.mat-mdc-select-value-text {
+    color: var(--text-on-primary); /* #5E3A28 */
+}
+
+.mat-mdc-form-field-label {
+    color: var(--primary-700); /* #D97C5A */
+}
+
+/* Респонзивни стилови */
+@media (max-width: 768px) {
+    .filters {
+    grid-template-columns: 1fr; /* Једна колона на малим екранима */
+    gap: 15px;
+    }
+    
+    mat-form-field {
+    margin-bottom: 10px;
+    }
+}
+
+/* Додатни ефекат за фокус */
+.mat-mdc-form-field.mat-focused .mat-mdc-form-field-infix {
+    box-shadow: 0 0 8px rgba(253, 157, 122, 0.3);
+}
+
+
+/* ===== STILOVI ZA DROPDOWN (MAT-SELECT) ===== */
+.mat-mdc-select-panel {
+    background-color: var(--primary-100) !important; /* #ffe0d6 */
+    border-radius: 8px !important;
+    margin-top: 8px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    border: 1px solid var(--primary-500) !important;
+}
+
+.mat-mdc-option {
+    color: var(--text-on-primary) !important;
+    /* color: black !important; */
+    padding: 8px 16px !important;
+}
+
+.mat-mdc-option:hover:not(.mdc-list-item--disabled),
+.mat-mdc-option:focus:not(.mdc-list-item--disabled),
+.mat-mdc-option.mat-mdc-option-active {
+    background-color: var(--primary-200) !important; 
+
+}
+
+/* .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) {
+    /* background-color: var(--primary-200) !important;  */
+    
+    /* #FD9D7A */
+    /* color: white !important; */
+/* } */ 
+
+
+
+/* Pravilna boja pozadine za dropdown panel */
+::ng-deep .mat-mdc-select-panel {
+    background-color: var(--primary-100) !important; /* tvoja svetla boja */
+    color: var(--text-on-primary) !important;
+    border-radius: 8px;
+    border: 1px solid var(--primary-500);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Stilizuj opcije unutar dropdowna */
+  ::ng-deep .mat-mdc-option {
+    background-color: transparent !important;
+    color: var(--text-on-primary) !important;
+    font-size: 14px;
+  }
+  
+  /* Hover/focus/selected */
+  ::ng-deep .mat-mdc-option:hover:not(.mdc-list-item--disabled),
+  ::ng-deep .mat-mdc-option:focus:not(.mdc-list-item--disabled),
+  ::ng-deep .mat-mdc-option.mat-mdc-option-active {
+    background-color: var(--primary-200) !important;
+    color: var(--text-on-primary) !important;
+  }
+  
+
